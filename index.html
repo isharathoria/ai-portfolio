@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isha — Product Manager, AI &amp; Healthcare</title>
+<meta name="description" content="Portfolio of Isha, a Product Manager building AI products in healthcare: AI case studies, FDA submissions, and 0-to-1 product and business building at Qure.ai and Care.Fi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azure:#4f46e5; --azure-600:#4338ca; --azure-50:#f1f0ff; --azure-100:#dedcff;
+  --navy:#0e1230; --navy-2:#171c45;
+  --emerald:#047857; --emerald-50:#e7f6ef;
+  --topaz:#b45309; --topaz-50:#fff3e0;
+  --bg:#f7f7fb; --paper:#ffffff; --ink:#111430; --ink2:#454a66; --ink3:#7b8099; --line:#e4e5ef;
+  --head:"Bricolage Grotesque","Inter",Arial,sans-serif;
+  --text:"Inter",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --azure:#8b84ff; --azure-600:#aaa5ff; --azure-50:#1b1b3d; --azure-100:#2c2b5e;
+    --emerald:#3ccf9a; --emerald-50:#10302a; --topaz:#f2b552; --topaz-50:#33260f;
+    --bg:#090b1d; --paper:#12152e; --ink:#eef0fb; --ink2:#b5b9d3; --ink3:#8589a6; --line:#25294a;
+  }
+}
+:root[data-theme="dark"]{
+  --azure:#8b84ff; --azure-600:#aaa5ff; --azure-50:#1b1b3d; --azure-100:#2c2b5e;
+  --emerald:#3ccf9a; --emerald-50:#10302a; --topaz:#f2b552; --topaz-50:#33260f;
+  --bg:#090b1d; --paper:#12152e; --ink:#eef0fb; --ink2:#b5b9d3; --ink3:#8589a6; --line:#25294a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--text);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--head);letter-spacing:-.015em;line-height:1.12}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* ---------- hero ---------- */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 380px at 85% 10%,rgba(99,91,255,.45),transparent 70%),
+  radial-gradient(420px 300px at 10% 110%,rgba(4,180,130,.22),transparent 70%)}
+.hero .wrap{position:relative;z-index:1;padding-top:64px;padding-bottom:40px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--text);letter-spacing:.14em;text-transform:uppercase;color:#b9b5ff}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#3ccf9a;box-shadow:0 0 0 4px rgba(60,207,154,.2)}
+.hero h1{font-size:52px;font-weight:800;margin:16px 0 6px}
+.hero .tagline{font:600 20px/1.3 var(--head);color:#cfcdfa;margin-bottom:16px}
+.hero p.intro{color:#c3c6e0;max-width:640px;font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font:500 12.5px/1 var(--text);padding:8px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:#e8e9f8}
+
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;margin-top:36px}
+.kpis div{background:rgba(14,18,48,.82);padding:18px 18px 16px}
+.kpis b{display:block;font:800 26px/1.05 var(--head);color:#fff;margin-bottom:6px;white-space:nowrap}
+.kpis b span{color:#9d97ff;font-weight:600}
+.kpis small{display:block;font-size:12.5px;line-height:1.35;color:#b3b6d2}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+.nav a{white-space:nowrap;text-decoration:none;font:600 13px/1 var(--text);color:var(--ink2);padding:9px 13px;border-radius:8px}
+.nav a:hover{background:var(--azure-50);color:var(--azure)}
+
+/* ---------- section scaffolding ---------- */
+section.block{padding:56px 0 8px;scroll-margin-top:60px}
+.eyebrow{font:700 12px/1 var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
+.sec-title{font-size:32px;font-weight:700;margin:10px 0 8px}
+.sec-sub{color:var(--ink2);max-width:680px;margin-bottom:22px}
+
+.company{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.company .meta{font-size:13.5px;color:var(--ink3)}
+
+/* highlight cards */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hl .c{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative}
+.hl .c .ic{width:38px;height:38px;border-radius:10px;background:var(--azure-50);color:var(--azure);display:grid;place-items:center;margin-bottom:14px}
+.hl .c .ic svg{width:20px;height:20px}
+.hl .c b.big{display:block;font:800 28px/1.05 var(--head);color:var(--ink);margin-bottom:6px}
+.hl .c h3{font-size:16.5px;margin-bottom:6px}
+.hl .c p{font-size:14px;color:var(--ink2)}
+.hl .c.feature{grid-column:span 2;background:var(--navy);border-color:var(--navy);color:#fff}
+.hl .c.feature h3{color:#fff;font-size:20px}
+.hl .c.feature p{color:#c3c6e0;font-size:14.5px}
+.hl .c.feature .ic{background:rgba(255,255,255,.1);color:#b9b5ff}
+.hl .c.feature b.big{color:#fff}
+
+.subhead{display:flex;align-items:center;gap:12px;margin:44px 0 6px}
+.subhead h3{font-size:24px}
+.subhead .pill{font:700 11px/1 var(--text);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:6px;background:var(--azure);color:#fff}
+.subnote{color:var(--ink2);margin-bottom:22px;max-width:680px}
+
+/* ---------- tabs + case styles ---------- */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:border-color .15s,background .15s}
+.tab:hover{border-color:var(--azure)}
+.tab:focus-visible{outline:2px solid var(--azure);outline-offset:2px}
+.tab .t{font:700 11px/1 var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--azure)}
+.tab .h{font:700 16px/1.2 var(--head);color:var(--ink)}
+.tab .m{font:500 12.5px/1.3 var(--text);color:var(--ink3)}
+.tab[aria-selected="true"]{background:var(--azure);border-color:var(--azure)}
+.tab[aria-selected="true"] .t{color:#e0deff}
+.tab[aria-selected="true"] .h{color:#fff}
+.tab[aria-selected="true"] .m{color:#ecebff}
+.case[hidden]{display:none}
+
+.case{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px 44px;margin:16px 0 0}
+.case-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px}
+.badge{flex:none;width:52px;height:52px;border-radius:14px;background:var(--azure);color:#fff;display:grid;place-items:center;font:700 20px/1 var(--head)}
+.case-head .t{font:600 12px/1 var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.case h2{font-size:27px;margin:8px 0 6px}
+.case .lede{color:var(--ink2);font-size:15.5px;max-width:720px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font:600 11.5px/1 var(--text);padding:6px 10px;border-radius:6px;background:var(--azure-50);color:var(--azure-600)}
+.hero-stat{display:flex;align-items:center;gap:22px;background:var(--navy);color:#fff;border-radius:16px;padding:22px 26px;margin-top:4px;position:relative;overflow:hidden}
+.hero-stat::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(99,91,255,.55),transparent 70%)}
+.hero-stat .num{font:800 42px/1 var(--head);white-space:nowrap;position:relative;z-index:1}
+.hero-stat .num span{color:#9d97ff;font-weight:600}
+.hero-stat .num small{font-size:20px;font-weight:600;color:#c3c6e0}
+.hero-stat .txt{color:#c3c6e0;font-size:14.5px;max-width:440px;position:relative;z-index:1}
+.hero-stat .txt b{display:block;color:#fff;font:700 12px/1 var(--text);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.box{border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.box h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-family:var(--text);font-weight:700;margin-bottom:8px}
+.box p{color:var(--ink2);font-size:14.5px}
+.box.why{background:var(--azure-50);border-color:var(--azure-100)}
+.box.why p{color:var(--ink)}
+.flow{margin-top:18px;border:1px solid var(--line);border-radius:14px;padding:18px 14px 12px;overflow-x:auto}
+.flow svg{display:block;width:100%;min-width:640px;height:auto}
+.sub{font:700 13px/1 var(--text);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin:24px 0 10px}
+.role{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.role div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13.5px;color:var(--ink2)}
+.role b{display:block;color:var(--ink);font-family:var(--head);font-size:14.5px;margin-bottom:3px}
+.impact{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.impact div{background:var(--emerald-50);border-radius:12px;padding:14px;font-size:13.5px;color:var(--ink)}
+.impact b{display:block;font:700 11.5px/1.2 var(--text);letter-spacing:.08em;text-transform:uppercase;color:var(--emerald);margin-bottom:6px}
+.evals{display:flex;flex-wrap:wrap;gap:8px}
+.evals span{font-size:13px;color:var(--ink2);border:1px dashed var(--line);border-radius:8px;padding:7px 10px}
+.evals span b{color:var(--topaz);font:700 10px/1 var(--text);letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+
+/* ---------- care.fi ---------- */
+.cf{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:32px 34px}
+.cf-top{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+.cf-top p{color:var(--ink2)}
+.cf-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.cf-stats div{border-radius:12px;padding:14px 16px;background:var(--emerald-50)}
+.cf-stats b{display:block;font:800 26px/1 var(--head);color:var(--emerald);margin-bottom:6px}
+.cf-stats span{font-size:13px;color:var(--ink)}
+ul.list{list-style:none;margin-top:16px}
+ul.list li{position:relative;padding-left:20px;margin:8px 0;color:var(--ink2);font-size:14.5px}
+ul.list li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--azure)}
+ul.list li b{color:var(--ink);font-weight:600}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.sk{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
+.sk h3{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sk h3 i{width:10px;height:10px;border-radius:3px;background:var(--azure);display:inline-block}
+.sk:nth-child(2) h3 i{background:var(--emerald)}
+.sk:nth-child(3) h3 i{background:var(--topaz)}
+.sk:nth-child(4) h3 i{background:#c026d3}
+.sk .tags span{font:500 13px/1 var(--text);padding:8px 11px;border-radius:8px;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+
+/* ---------- background ---------- */
+.tl{position:relative;margin-left:8px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl .it{position:relative;padding-left:32px;margin-bottom:20px}
+.tl .it::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--azure)}
+.tl .it.now::before{background:var(--azure)}
+.tl h4{font-size:17px}
+.tl .when{font-size:12.5px;color:var(--ink3);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin:2px 0 4px}
+.tl p{font-size:14.5px;color:var(--ink2);max-width:700px}
+.bg-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.ach{background:var(--navy);color:#fff;border-radius:20px;padding:26px}
+.ach h3{font-size:19px;margin-bottom:14px}
+.ach ul{list-style:none}
+.ach li{padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:#c3c6e0}
+.ach li:first-child{border-top:0;padding-top:0}
+.ach li b{display:block;color:#fff;font-family:var(--head);font-size:15.5px;margin-bottom:2px}
+
+footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;color:var(--ink3);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.btn{background:none;border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:7px 12px;font:600 12.5px/1 var(--text);cursor:pointer}
+.btn:hover{border-color:var(--azure);color:var(--azure)}
+
+@media (max-width:820px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpis div:last-child{grid-column:span 2}
+  .hl{grid-template-columns:1fr}
+  .hl .c.feature{grid-column:auto}
+  .cf-top,.bg-grid,.skills{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .hero .wrap{padding-top:44px}
+  .hero h1{font-size:38px}
+  .hero .tagline{font-size:17px}
+  .sec-title{font-size:26px}
+  .grid{grid-template-columns:1fr}
+  .tabs{grid-template-columns:repeat(3,minmax(150px,1fr));overflow-x:auto;margin-left:-16px;margin-right:-16px;padding:0 16px 8px;scroll-snap-type:x mandatory}
+  .tab{scroll-snap-align:start;padding:13px 14px}
+  .tab .h{font-size:14.5px}
+  .hero-stat{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px}
+  .hero-stat .num{font-size:34px}
+  .role{grid-template-columns:1fr}
+  .impact{grid-template-columns:1fr 1fr}
+  .case{padding:26px 18px;border-radius:16px}
+  .case-head{flex-direction:column;gap:12px}
+  .case h2{font-size:23px}
+  .cf{padding:22px 18px}
+  .kpis b{font-size:22px}
+}
+@media print{
+  :root{--bg:#fff;--paper:#fff;--ink:#111430;--ink2:#454a66;--ink3:#7b8099;--line:#e4e5ef;--azure:#4f46e5;--azure-600:#4338ca;--azure-50:#f1f0ff;--azure-100:#dedcff;--emerald:#047857;--emerald-50:#e7f6ef;--topaz:#b45309;--topaz-50:#fff3e0}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html{zoom:.8}
+  .nav,.btn,.tabs{display:none}
+  .case[hidden]{display:block}
+  .case{break-before:page}
+  .hl .c,.box,.role div,.impact div,.sk,.cf,.ach,.hero-stat{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Product Manager · AI &amp; Healthcare</div>
+    <h1>Isha</h1>
+    <div class="tagline">I build AI products that fit real workflows, and take them from 0 to 1.</div>
+    <p class="intro">Product Manager at Qure.ai, working on clinical AI for US health systems. Before that I was the first hire at Care.Fi, a healthcare fintech, where I built and scaled the business across product, lending, fundraising and operations. IIT Bombay engineer.</p>
+    <div class="chips">
+      <span class="chip">Qure.ai · Clinical AI</span>
+      <span class="chip">Care.Fi · Healthcare fintech</span>
+      <span class="chip">IIT Bombay</span>
+      <span class="chip">Based in India</span>
+    </div>
+    <div class="kpis" role="list">
+      <div role="listitem"><b>10 <span>→</span> 6</b><small>months to onboard a new US health system</small></div>
+      <div role="listitem"><b>40 <span>→</span> 70%</b><small>follow-up rate with an LLM-powered tool</small></div>
+      <div role="listitem"><b>2 FDA</b><small>new submissions in 6 months</small></div>
+      <div role="listitem"><b>$8M+</b><small>debt raised across 8+ institutions</small></div>
+      <div role="listitem"><b>4×</b><small>YoY revenue growth at Care.Fi</small></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#qure">Qure.ai</a>
+    <a href="#ai">AI case studies</a>
+    <a href="#carefi">Care.Fi</a>
+    <a href="#skills">Skills</a>
+    <a href="#background">Background &amp; achievements</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= QURE ================= -->
+<section class="block" id="qure">
+  <div class="company">
+    <div>
+      <div class="eyebrow">Current · Product Manager</div>
+      <h2 class="sec-title">Qure.ai</h2>
+      <p class="sec-sub">Clinical AI used by US health systems. I own products from customer discovery and PRDs through model improvement, regulatory submission and deployment.</p>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="c feature">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/></svg></div>
+      <h3>0 → 1: AI cardiovascular product, through FDA submission</h3>
+      <p>Took a new AI-powered cardiovascular product line from zero to FDA submission for the US market. I owned product strategy, customer discovery, PRDs, model improvement and the submission itself. The product then rolled out across 7+ US health systems.</p>
+    </div>
+    <div class="c">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
+      <b class="big">2 in 6 months</b>
+      <h3>New FDA submissions</h3>
+      <p>Delivered two more FDA submissions within six months.</p>
+    </div>
+    <div class="c">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <b class="big">New market</b>
+      <h3>Market expansion</h3>
+      <p>Worked on taking Qure.ai's products into a new market.</p>
+    </div>
+    <div class="c">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+      <b class="big">7+</b>
+      <h3>US health systems</h3>
+      <p>Deployed AI into existing clinical workflows, with integration playbooks and training frameworks for faster rollouts.</p>
+    </div>
+    <div class="c">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h6"/><path d="M7 12h10"/></svg></div>
+      <b class="big">UI lead</b>
+      <h3>Early lung-cancer detection</h3>
+      <p>Led the customer-facing UI for an early lung-cancer detection product.</p>
+    </div>
+  </div>
+
+  <div class="subhead" id="ai"><h3>AI case studies</h3><span class="pill">3 builds</span></div>
+  <p class="subnote">Three AI tools I took from problem to working product at Qure.ai. Pick one to read it.</p>
+
+<div class="tabs" role="tablist" aria-label="Case studies">
+  <button class="tab" role="tab" id="tab-rag" aria-controls="rag" data-t="rag"><span class="t">01 · Knowledge</span><span class="h">RAG onboarding agent</span><span class="m">10 → 6 months onboarding</span></button>
+  <button class="tab" role="tab" id="tab-llm" aria-controls="llm" data-t="llm"><span class="t">02 · Workflow</span><span class="h">LLM-powered clinical tool</span><span class="m">40% → 70% follow-up</span></button>
+  <button class="tab" role="tab" id="tab-demo" aria-controls="demo" data-t="demo"><span class="t">03 · Automation</span><span class="h">Automated demos &amp; decks</span><span class="m">Less product bandwidth per demo</span></button>
+</div>
+
+<article class="case" id="rag" role="tabpanel" aria-labelledby="tab-rag">
+  <div class="case-head">
+    <div class="badge">01</div>
+    <div>
+      <div class="t">Internal knowledge · RAG agent</div>
+      <h2>A RAG agent to accelerate healthcare-system onboarding</h2>
+      <p class="lede">Turning fragmented product, technical and deployment knowledge into an assistant that gives grounded answers, so new team members stop waiting on experts.</p>
+      <div class="tags"><span class="tag">RAG</span><span class="tag">Retrieval design</span><span class="tag">Prompting</span><span class="tag">Evals</span></div>
+    </div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="num">10 <span>→</span> 6 <small>months</small></div>
+    <div class="txt"><b>Onboarding time</b>End-to-end onboarding time for a new US healthcare system, about 40% faster.</div>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h4>Problem</h4>
+      <p>Onboarding a new US healthcare system meant navigating scattered product, technical, integration, deployment and process documentation. New team members depended on experienced colleagues for answers, the same questions kept repeating, and onboarding slowed down.</p>
+    </div>
+    <div class="box why">
+      <h4>Why RAG, not a generic LLM</h4>
+      <p>The answers were company-specific, current and contextual, which a general model doesn't know. Retrieval keeps every answer grounded in approved internal sources and traceable back to them, and the knowledge base can be updated without retraining.</p>
+    </div>
+  </div>
+
+  <div class="flow">
+    <svg viewBox="0 0 760 140" role="img" aria-label="User query, retrieval from internal knowledge, relevant context, LLM, grounded answer with sources">
+      <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
+      <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+        <rect x="262" y="2" width="136" height="24" rx="6" fill="none" stroke="var(--ink3)" stroke-dasharray="4 3"/>
+        <text x="330" y="18" font-size="10.5" fill="var(--ink2)">product · technical · deployment docs</text>
+        <line x1="330" y1="27" x2="330" y2="38" stroke="var(--ink3)" stroke-width="1.5"/>
+        <rect x="6" y="40" width="100" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="56" y="64" font-size="13" font-weight="600" fill="var(--ink)">User</text><text x="56" y="81" font-size="10.5" fill="var(--ink3)">onboarding team</text>
+        <rect x="136" y="40" width="108" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="190" y="64" font-size="13" font-weight="600" fill="var(--ink)">Query</text><text x="190" y="81" font-size="10.5" fill="var(--ink3)">plain language</text>
+        <rect x="274" y="40" width="112" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="330" y="64" font-size="13" font-weight="600" fill="var(--azure-600)">Retrieval</text><text x="330" y="81" font-size="10.5" fill="var(--azure-600)">search internal KB</text>
+        <rect x="416" y="40" width="112" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="472" y="64" font-size="13" font-weight="600" fill="var(--ink)">Context</text><text x="472" y="81" font-size="10.5" fill="var(--ink3)">top-matched chunks</text>
+        <rect x="558" y="40" width="80" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="598" y="64" font-size="13" font-weight="600" fill="var(--azure-600)">LLM</text><text x="598" y="81" font-size="10.5" fill="var(--azure-600)">generate</text>
+        <rect x="668" y="40" width="86" height="54" rx="12" fill="var(--emerald-50)" stroke="var(--emerald)" stroke-width="1.5"/>
+        <text x="711" y="62" font-size="12.5" font-weight="600" fill="var(--emerald)">Grounded</text><text x="711" y="77" font-size="12.5" font-weight="600" fill="var(--emerald)">answer</text><text x="711" y="89" font-size="9.5" fill="var(--emerald)">+ sources</text>
+        <g stroke="var(--azure)" stroke-width="1.6" fill="none" marker-end="url(#a1)">
+          <line x1="108" y1="67" x2="133" y2="67"/><line x1="246" y1="67" x2="271" y2="67"/><line x1="388" y1="67" x2="413" y2="67"/><line x1="530" y1="67" x2="555" y2="67"/><line x1="640" y1="67" x2="665" y2="67"/>
+          <path d="M711 96 C711 120, 56 120, 56 97"/>
+        </g>
+        <text x="380" y="134" font-size="10.5" fill="var(--ink3)">answer returned to the user · follow-ups refine the next query</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sub">What I owned as PM</div>
+  <div class="role">
+    <div><b>Found the problem</b>Spotted the onboarding bottleneck and framed it as an AI opportunity.</div>
+    <div><b>Defined the workflow</b>Set the user journey and the success criteria.</div>
+    <div><b>Structured the knowledge</b>Shaped how internal knowledge is organised and retrieved.</div>
+    <div><b>Designed the prompts</b>Wrote the prompts and evaluated whether answers held up.</div>
+    <div><b>Iterated with users</b>Refined the tool based on the questions people actually asked.</div>
+    <div><b>Drove outcomes</b>Focused on adoption, accuracy and less onboarding effort.</div>
+  </div>
+
+  <div class="sub">Impact</div>
+  <div class="impact">
+    <div><b>Less dependency</b>Fewer repeat questions to experienced team members</div>
+    <div><b>Faster search</b>Less time hunting across fragmented docs</div>
+    <div><b>10 → 6 months</b>Onboarding time for new healthcare systems</div>
+    <div><b>Reusable</b>Extends to other onboarding and deployment workflows</div>
+  </div>
+
+  <div class="sub">How I evaluate it</div>
+  <div class="evals">
+    <span><b>Proposed</b>Retrieval relevance</span><span><b>Proposed</b>Answer groundedness</span><span><b>Proposed</b>Task completion</span><span><b>Proposed</b>Time-to-answer</span><span><b>Proposed</b>Repeat escalations</span><span><b>Proposed</b>Adoption &amp; CSAT</span>
+  </div>
+</article>
+
+<article class="case" id="llm" role="tabpanel" aria-labelledby="tab-llm">
+  <div class="case-head">
+    <div class="badge">02</div>
+    <div>
+      <div class="t">Clinical workflow · LLM-powered tool</div>
+      <h2>An LLM-powered clinical workflow that clinicians can trust</h2>
+      <p class="lede">Designing an AI-assisted clinical decision-support workflow from first principles: the prompts, the evaluation criteria and the clinician interactions. There was no existing playbook, and trust and safety really mattered.</p>
+      <div class="tags"><span class="tag">LLM workflows</span><span class="tag">Prompt engineering</span><span class="tag">Evaluation design</span><span class="tag">Human-in-the-loop</span></div>
+    </div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="num">40% <span>→</span> 70%</div>
+    <div class="txt"><b>Follow-up rate</b>Share of cases that received follow-up after the LLM-powered workflow went live.</div>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h4>Problem</h4>
+      <p>An LLM is only useful in a clinical setting if its output is reliable, easy to check, and fits how clinicians already work. A capable model was not enough. The workflow around it had to make the output trustworthy and usable.</p>
+    </div>
+    <div class="box why">
+      <h4>The PM challenge</h4>
+      <p>Define what "good" looks like before shipping: what the model should do, how to tell when its output is right, and where the clinician stays in control. Then build the prompts, checks and interactions around those answers.</p>
+    </div>
+  </div>
+
+  <div class="flow">
+    <svg viewBox="0 0 760 130" role="img" aria-label="Clinical input, structured prompt, LLM, evaluation checks, clinician review, output in workflow, with feedback loop to prompt">
+      <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
+      <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+        <rect x="6" y="20" width="104" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="58" y="44" font-size="13" font-weight="600" fill="var(--ink)">Clinical input</text><text x="58" y="61" font-size="10.5" fill="var(--ink3)">case context</text>
+        <rect x="136" y="20" width="110" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="191" y="44" font-size="13" font-weight="600" fill="var(--azure-600)">Prompt design</text><text x="191" y="61" font-size="10.5" fill="var(--azure-600)">structured, scoped</text>
+        <rect x="272" y="20" width="84" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="314" y="44" font-size="13" font-weight="600" fill="var(--azure-600)">LLM</text><text x="314" y="61" font-size="10.5" fill="var(--azure-600)">draft output</text>
+        <rect x="382" y="20" width="112" height="54" rx="12" fill="var(--topaz-50)" stroke="var(--topaz)" stroke-width="1.5"/>
+        <text x="438" y="44" font-size="13" font-weight="600" fill="var(--topaz)">Eval criteria</text><text x="438" y="61" font-size="10.5" fill="var(--topaz)">quality checks</text>
+        <rect x="520" y="20" width="110" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="575" y="44" font-size="13" font-weight="600" fill="var(--ink)">Clinician</text><text x="575" y="61" font-size="10.5" fill="var(--ink3)">reviews &amp; decides</text>
+        <rect x="656" y="20" width="98" height="54" rx="12" fill="var(--emerald-50)" stroke="var(--emerald)" stroke-width="1.5"/>
+        <text x="705" y="44" font-size="12.5" font-weight="600" fill="var(--emerald)">In workflow</text><text x="705" y="61" font-size="10.5" fill="var(--emerald)">trusted output</text>
+        <g stroke="var(--azure)" stroke-width="1.6" fill="none" marker-end="url(#a2)">
+          <line x1="112" y1="47" x2="133" y2="47"/><line x1="248" y1="47" x2="269" y2="47"/><line x1="358" y1="47" x2="379" y2="47"/><line x1="496" y1="47" x2="517" y2="47"/><line x1="632" y1="47" x2="653" y2="47"/>
+          <path d="M575 76 C575 108, 191 108, 191 77"/>
+        </g>
+        <text x="383" y="124" font-size="10.5" fill="var(--ink3)">feedback from evals and clinicians refines the prompts</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sub">What I owned as PM</div>
+  <div class="role">
+    <div><b>Framed the use case</b>Decided where AI assistance adds value in the clinical workflow, and where it shouldn't.</div>
+    <div><b>Designed the prompts</b>Used prompt engineering to make outputs consistent and scoped to the task.</div>
+    <div><b>Defined evaluation</b>Set the criteria for a "good" output and the checks before it reaches a clinician.</div>
+    <div><b>Designed the interaction</b>Shaped how clinicians see, verify and act on AI output, with a human in the loop.</div>
+    <div><b>Tested assumptions</b>Separated what was true from what we had assumed, using real cases.</div>
+    <div><b>Balanced trust &amp; speed</b>Weighed usefulness against safety in a regulated domain.</div>
+  </div>
+
+  <div class="sub">Impact</div>
+  <div class="impact">
+    <div><b>40% → 70%</b>Follow-up rate after launch</div>
+    <div><b>Consistent</b>Structured prompts made outputs more predictable</div>
+    <div><b>Measurable</b>Clear eval criteria defined what "good" means</div>
+    <div><b>Workflow-fit</b>AI built into how clinicians already work</div>
+  </div>
+
+  <div class="sub">How I evaluate it</div>
+  <div class="evals">
+    <span><b>Proposed</b>Output accuracy vs. expert review</span><span><b>Proposed</b>Clinician acceptance / edit rate</span><span><b>Proposed</b>Error &amp; unsafe-output rate</span><span><b>Proposed</b>Time saved per case</span><span><b>Proposed</b>Repeat usage</span>
+  </div>
+</article>
+
+<article class="case" id="demo" role="tabpanel" aria-labelledby="tab-demo">
+  <div class="case-head">
+    <div class="badge">03</div>
+    <div>
+      <div class="t">Go-to-market · Automation</div>
+      <h2>Automating product demos and sales decks</h2>
+      <p class="lede">I took a manual, repetitive job and automated it: building tailored product demos and decks for each prospect. AI now generates them from product knowledge and customer context, ready for a quick review.</p>
+      <div class="tags"><span class="tag">Workflow automation</span><span class="tag">LLM generation</span><span class="tag">Templates</span><span class="tag">GTM enablement</span></div>
+    </div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="num" style="white-space:normal;font-size:32px"><span>↓</span> Product bandwidth</div>
+    <div class="txt"><b>Product team time freed</b>The product team no longer has to build each new product demo and deck by hand.</div>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h4>Problem</h4>
+      <p>Every customer conversation needed a demo and deck tailored to that health system's use case. Building them by hand was slow and repetitive, and quality and messaging varied depending on who made them.</p>
+    </div>
+    <div class="box why">
+      <h4>The opportunity</h4>
+      <p>Most of each deck was the same: product facts, the value story, the demo flow. What changed was the customer context. AI could combine the two on demand, so people could spend their time on the conversation instead of the slides.</p>
+    </div>
+  </div>
+
+  <div class="flow">
+    <svg viewBox="0 0 760 130" role="img" aria-label="Customer context and product knowledge feed an AI generator that produces a demo script and deck, which is reviewed then delivered">
+      <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
+      <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+        <rect x="6" y="6" width="130" height="46" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="71" y="27" font-size="12.5" font-weight="600" fill="var(--ink)">Customer context</text><text x="71" y="42" font-size="10.5" fill="var(--ink3)">use case · stakeholders</text>
+        <rect x="6" y="70" width="130" height="46" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="71" y="91" font-size="12.5" font-weight="600" fill="var(--ink)">Product knowledge</text><text x="71" y="106" font-size="10.5" fill="var(--ink3)">features · proof points</text>
+        <rect x="184" y="34" width="130" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="249" y="58" font-size="13" font-weight="600" fill="var(--azure-600)">AI generator</text><text x="249" y="75" font-size="10.5" fill="var(--azure-600)">prompts + templates</text>
+        <rect x="362" y="6" width="118" height="46" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="421" y="27" font-size="12.5" font-weight="600" fill="var(--ink)">Demo script</text><text x="421" y="42" font-size="10.5" fill="var(--ink3)">tailored flow</text>
+        <rect x="362" y="70" width="118" height="46" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="421" y="91" font-size="12.5" font-weight="600" fill="var(--ink)">Pitch deck</text><text x="421" y="106" font-size="10.5" fill="var(--ink3)">on-brand slides</text>
+        <rect x="528" y="34" width="100" height="54" rx="12" fill="var(--topaz-50)" stroke="var(--topaz)" stroke-width="1.5"/>
+        <text x="578" y="58" font-size="13" font-weight="600" fill="var(--topaz)">Quick review</text><text x="578" y="75" font-size="10.5" fill="var(--topaz)">human check</text>
+        <rect x="660" y="34" width="94" height="54" rx="12" fill="var(--emerald-50)" stroke="var(--emerald)" stroke-width="1.5"/>
+        <text x="707" y="58" font-size="13" font-weight="600" fill="var(--emerald)">Customer</text><text x="707" y="75" font-size="10.5" fill="var(--emerald)">meeting-ready</text>
+        <g stroke="var(--azure)" stroke-width="1.6" fill="none" marker-end="url(#a3)">
+          <path d="M138 29 C160 29, 160 52, 181 55"/><path d="M138 93 C160 93, 160 70, 181 67"/>
+          <path d="M316 55 C338 52, 338 29, 359 29"/><path d="M316 67 C338 70, 338 93, 359 93"/>
+          <path d="M482 29 C504 29, 504 52, 525 55"/><path d="M482 93 C504 93, 504 70, 525 67"/>
+          <line x1="630" y1="61" x2="657" y2="61"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sub">What I owned as PM</div>
+  <div class="role">
+    <div><b>Spotted the waste</b>Noticed the repetitive manual prep behind every demo and deck.</div>
+    <div><b>Separated fixed from variable</b>Split each deck into reusable product content and the parts tailored to each customer.</div>
+    <div><b>Built the automation</b>Set up an AI workflow that generates the demo script and deck from those inputs.</div>
+    <div><b>Kept quality high</b>Built in templates and a human review step so the output stays on-brand and accurate.</div>
+    <div><b>Drove adoption</b>Made it the default way the team prepared for customer conversations.</div>
+    <div><b>Made it reusable</b>Designed it so new products and use cases slot into the same pipeline.</div>
+  </div>
+
+  <div class="sub">Impact</div>
+  <div class="impact">
+    <div><b>Bandwidth freed</b>Product team no longer hand-builds each new demo and deck</div>
+    <div><b>Consistent story</b>Same accurate messaging, whoever presents</div>
+    <div><b>Tailored at scale</b>Every prospect gets material built for their use case</div>
+    <div><b>Time back</b>More time for the customer, less for formatting</div>
+  </div>
+
+  <div class="sub">How I evaluate it</div>
+  <div class="evals">
+    <span><b>Proposed</b>Prep time per deck / demo</span><span><b>Proposed</b>Edits needed before use</span><span><b>Proposed</b>Team adoption</span><span><b>Proposed</b>Demo-to-next-step conversion</span>
+  </div>
+</article>
+</section>
+
+<!-- ================= CARE.FI ================= -->
+<section class="block" id="carefi">
+  <div class="eyebrow">~4.5 years · First hire</div>
+  <h2 class="sec-title">Care.Fi</h2>
+  <div class="cf">
+    <div class="cf-top">
+      <div>
+        <p>I joined an early-stage healthcare fintech as its first employee, with no defined function. Over time I owned strategy, product, operations, lending, finance, treasury, fundraising and compliance, and grew the company from an early roadmap into a multi-market business.</p>
+        <ul class="list">
+          <li><b>Built the team</b> from 1 to 15 people and set the KPIs and KRAs for Operations, Credit and Sales.</li>
+          <li><b>Led two products end to end</b>, from research to deployment. I was the only person in product working directly with hospital customers.</li>
+          <li><b>Stepped into the fundraising lead role</b> before the company hired for it, raising directly from investors.</li>
+          <li><b>Worked on regulation</b>: RBI compliance and the NBFC licence.</li>
+        </ul>
+      </div>
+      <div class="cf-stats">
+        <div><b>50+</b><span>hospitals across 10+ markets</span></div>
+        <div><b>4×</b><span>year-on-year revenue growth</span></div>
+        <div><b>95%</b><span>recurring business</span></div>
+        <div><b>$8M+</b><span>debt raised from 8+ institutions</span></div>
+        <div><b>300 bps</b><span>lower cost of capital</span></div>
+        <div><b>1 → 15</b><span>team built from scratch</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="block" id="skills">
+  <div class="eyebrow">Toolkit</div>
+  <h2 class="sec-title">Skills</h2>
+  <div class="skills">
+    <div class="sk">
+      <h3><i></i>AI &amp; LLM products</h3>
+      <div class="tags"><span>RAG systems</span><span>Prompt engineering</span><span>LLM evaluation design</span><span>Human-in-the-loop workflows</span><span>AI workflow automation</span><span>Clinical AI</span><span>Building with Claude</span></div>
+    </div>
+    <div class="sk">
+      <h3><i></i>Product management</h3>
+      <div class="tags"><span>0 → 1 product building</span><span>Customer discovery</span><span>PRDs &amp; roadmaps</span><span>Workflow &amp; UX design</span><span>Success metrics</span><span>Deployment &amp; adoption</span></div>
+    </div>
+    <div class="sk">
+      <h3><i></i>Healthcare &amp; regulatory</h3>
+      <div class="tags"><span>FDA submissions</span><span>US health-system deployments</span><span>Clinical workflow integration</span><span>RBI compliance</span><span>NBFC licensing</span></div>
+    </div>
+    <div class="sk">
+      <h3><i></i>Business &amp; leadership</h3>
+      <div class="tags"><span>Debt fundraising</span><span>Lending &amp; credit</span><span>Treasury &amp; finance</span><span>Strategy</span><span>Team building &amp; KPIs</span><span>Stakeholder management</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BACKGROUND ================= -->
+<section class="block" id="background">
+  <div class="eyebrow">Journey</div>
+  <h2 class="sec-title">Background &amp; achievements</h2>
+  <div class="bg-grid">
+    <div class="tl">
+      <div class="it now"><h4>Qure.ai</h4><div class="when">Product Manager · Current</div><p>Clinical AI for US health systems: FDA submissions, AI tools and enterprise deployments.</p></div>
+      <div class="it"><h4>Care.Fi</h4><div class="when">First hire · ~4.5 years</div><p>Healthcare fintech. Scaled to 50+ hospitals and 4× YoY revenue across product, lending, fundraising and ops.</p></div>
+      <div class="it"><h4>Avail Finance</h4><div class="when">Working with the CFO</div><p>Debt fundraising. Received a pre-placement offer.</p></div>
+      <div class="it"><h4>Own venture: mentorship &amp; tutoring platform</h4><div class="when">Founder</div><p>Connected students with mentors and experts: 5 partner schools, 100+ mentors, about 2,000 students onboarded.</p></div>
+      <div class="it"><h4>IvyCap Ventures · Deutsche Bank (Manch)</h4><div class="when">Early roles</div><p>Worked with an IvyCap portfolio company, and on Deutsche Bank's financial-literacy initiative.</p></div>
+      <div class="it"><h4>IIT Bombay</h4><div class="when">B.Tech, Mechanical Engineering</div><p>Institute Student Mentor.</p></div>
+    </div>
+    <div class="ach">
+      <h3>Achievements</h3>
+      <ul>
+        <li><b>FDA submissions</b>A 0 → 1 AI cardiovascular product through FDA, plus two new submissions in 6 months</li>
+        <li><b>40% faster onboarding</b>US health-system onboarding cut from 10 to 6 months</li>
+        <li><b>$8M+ raised, 300 bps saved</b>Debt financing across 8+ institutions at Care.Fi</li>
+        <li><b>First hire → 15-person team</b>Grew Care.Fi to 50+ hospitals, 4× YoY revenue, 95% recurring</li>
+        <li><b>Founded a mentorship platform</b>About 2,000 students and 100+ mentors across 5 schools</li>
+        <li><b>Pre-placement offer</b>Avail Finance, after working with the CFO on debt raising</li>
+        <li><b>Institute Student Mentor, IIT Bombay</b>Mentored 24 sophomores and 12 freshers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Isha · Product Manager, AI &amp; Healthcare</span>
+  <span>Internal details are generalised. No confidential data is shown. <button class="btn" onclick="window.print()">Save as PDF</button></span>
+</footer>
+
+</main>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var ids=['rag','llm','demo'];
+  function show(id,push){
+    if(ids.indexOf(id)<0) return false;
+    tabs.forEach(function(t){
+      var on=t.getAttribute('data-t')===id;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      document.getElementById(t.getAttribute('data-t')).hidden=!on;
+    });
+    if(push) history.replaceState(null,'','#'+id);
+    return true;
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t.getAttribute('data-t'),true)});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(!d) return;
+      var n=tabs[(i+d+tabs.length)%tabs.length]; n.focus(); show(n.getAttribute('data-t'),true);
+    });
+  });
+  var h=location.hash.slice(1);
+  if(!show(h,false)) show('rag',false);
+  else document.getElementById('ai').scrollIntoView();
+})();
+</script>
+</body>
+</html>
