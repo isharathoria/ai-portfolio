@@ -152,6 +152,24 @@ ul.list li{position:relative;padding-left:20px;margin:8px 0;color:var(--ink2);fo
 ul.list li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--azure)}
 ul.list li b{color:var(--ink);font-weight:600}
 
+/* ---------- customer-facing ---------- */
+.cx{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cx div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;border-top:3px solid var(--azure)}
+.cx .k{display:block;font:700 11px/1.2 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--azure);margin-bottom:10px}
+.cx b{display:block;font:700 19px/1.15 var(--head);color:var(--ink);margin-bottom:6px}
+.cx p{font-size:14px;color:var(--ink2)}
+
+/* ---------- expandable case ---------- */
+details.more{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+details.more > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--text);color:var(--azure);padding:10px 14px;border:1px solid var(--azure-100);border-radius:10px;background:var(--azure-50)}
+details.more > summary::-webkit-details-marker{display:none}
+details.more > summary::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+details.more[open] > summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+details.more > summary:hover{border-color:var(--azure)}
+details.more > summary .less{display:none}
+details.more[open] > summary .less{display:inline}
+details.more[open] > summary .open{display:none}
+
 /* ---------- skills ---------- */
 .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .sk{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
@@ -193,6 +211,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   .hl{grid-template-columns:1fr}
   .hl .c.feature{grid-column:auto}
   .cf-top,.bg-grid,.skills{grid-template-columns:1fr}
+  .cx{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
   .wrap{padding:0 16px}
@@ -212,6 +231,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   .case-head{flex-direction:column;gap:12px}
   .case h2{font-size:23px}
   .cf{padding:22px 18px}
+  .cx{grid-template-columns:1fr}
   .kpis b{font-size:22px}
 }
 @media print{
@@ -220,6 +240,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   html{zoom:.8}
   .nav,.btn,.tabs{display:none}
   .case[hidden]{display:block}
+  details.more > summary{display:none}
   .case{break-before:page}
   .hl .c,.box,.role div,.impact div,.sk,.cf,.ach,.hero-stat{break-inside:avoid}
 }
@@ -231,13 +252,12 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   <div class="wrap">
     <div class="kicker">Product Manager · AI &amp; Healthcare</div>
     <h1>Isha</h1>
-    <div class="tagline">I build AI products that fit real workflows, and take them from 0 to 1.</div>
+    <div class="tagline">I build AI products that fit real workflows.</div>
     <p class="intro">Product Manager at Qure.ai, working on clinical AI for US health systems. Before that I was the first hire at Care.Fi, a healthcare fintech, where I built and scaled the business across product, lending, fundraising and operations. IIT Bombay engineer.</p>
     <div class="chips">
       <span class="chip">Qure.ai · Clinical AI</span>
       <span class="chip">Care.Fi · Healthcare fintech</span>
       <span class="chip">IIT Bombay</span>
-      <span class="chip">Based in India</span>
     </div>
     <div class="kpis" role="list">
       <div role="listitem"><b>10 <span>→</span> 6</b><small>months to onboard a new US health system</small></div>
@@ -254,6 +274,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
     <a href="#qure">Qure.ai</a>
     <a href="#ai">AI case studies</a>
     <a href="#carefi">Care.Fi</a>
+    <a href="#customer">Customer-facing</a>
     <a href="#skills">Skills</a>
     <a href="#background">Background &amp; achievements</a>
   </div>
@@ -339,6 +360,8 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
     </div>
   </div>
 
+  <details class="more">
+  <summary><span class="open">Read the full case study</span><span class="less">Show less</span></summary>
   <div class="flow">
     <svg viewBox="0 0 760 140" role="img" aria-label="User query, retrieval from internal knowledge, relevant context, LLM, grounded answer with sources">
       <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
@@ -389,6 +412,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   <div class="evals">
     <span><b>Proposed</b>Retrieval relevance</span><span><b>Proposed</b>Answer groundedness</span><span><b>Proposed</b>Task completion</span><span><b>Proposed</b>Time-to-answer</span><span><b>Proposed</b>Repeat escalations</span><span><b>Proposed</b>Adoption &amp; CSAT</span>
   </div>
+</details>
 </article>
 
 <article class="case" id="llm" role="tabpanel" aria-labelledby="tab-llm">
@@ -418,6 +442,8 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
     </div>
   </div>
 
+  <details class="more">
+  <summary><span class="open">Read the full case study</span><span class="less">Show less</span></summary>
   <div class="flow">
     <svg viewBox="0 0 760 130" role="img" aria-label="Clinical input, structured prompt, LLM, evaluation checks, clinician review, output in workflow, with feedback loop to prompt">
       <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
@@ -465,6 +491,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   <div class="evals">
     <span><b>Proposed</b>Output accuracy vs. expert review</span><span><b>Proposed</b>Clinician acceptance / edit rate</span><span><b>Proposed</b>Error &amp; unsafe-output rate</span><span><b>Proposed</b>Time saved per case</span><span><b>Proposed</b>Repeat usage</span>
   </div>
+</details>
 </article>
 
 <article class="case" id="demo" role="tabpanel" aria-labelledby="tab-demo">
@@ -494,6 +521,8 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
     </div>
   </div>
 
+  <details class="more">
+  <summary><span class="open">Read the full case study</span><span class="less">Show less</span></summary>
   <div class="flow">
     <svg viewBox="0 0 760 130" role="img" aria-label="Customer context and product knowledge feed an AI generator that produces a demo script and deck, which is reviewed then delivered">
       <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
@@ -544,6 +573,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   <div class="evals">
     <span><b>Proposed</b>Prep time per deck / demo</span><span><b>Proposed</b>Edits needed before use</span><span><b>Proposed</b>Team adoption</span><span><b>Proposed</b>Demo-to-next-step conversion</span>
   </div>
+</details>
 </article>
 </section>
 
@@ -572,6 +602,21 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
         <div><b>1 → 15</b><span>team built from scratch</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ================= CUSTOMER-FACING ================= -->
+<section class="block" id="customer">
+  <div class="eyebrow">Customer-facing · Deployment</div>
+  <h2 class="sec-title">Working with customers</h2>
+  <p class="sec-sub">Most of my work has happened in front of customers: understanding their problem, fitting the product into how they already work, and getting it adopted.</p>
+  <div class="cx">
+    <div><span class="k">Deploy into real workflows</span><b>7+ US health systems</b><p>Deployed AI into existing clinical workflows, with integration playbooks and training frameworks for faster rollouts.</p></div>
+    <div><span class="k">Speed up onboarding</span><b>10 → 6 months</b><p>Cut the time to onboard a new US health system, with a RAG agent that answers onboarding questions.</p></div>
+    <div><span class="k">Own the customer relationship</span><b>Direct line to hospitals</b><p>At Care.Fi, the only person in product working directly with hospital customers, and led two products from research to deployment based on those conversations.</p></div>
+    <div><span class="k">Demo &amp; pre-sales</span><b>Tailored for every customer</b><p>Automated building product demos and decks for each customer's use case.</p></div>
+    <div><span class="k">Earn user trust</span><b>Clinicians in the loop</b><p>Designed AI workflows that clinicians can review and verify before acting, so they adopt the output.</p></div>
+    <div><span class="k">Many stakeholders at once</span><b>Clinicians to CFOs</b><p>Worked with clinicians, hospital teams, investors, 8+ lenders and regulators (FDA, RBI).</p></div>
   </div>
 </section>
 
@@ -662,6 +707,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
       var n=tabs[(i+d+tabs.length)%tabs.length]; n.focus(); show(n.getAttribute('data-t'),true);
     });
   });
+  window.addEventListener('beforeprint',function(){[].forEach.call(document.querySelectorAll('details.more'),function(d){d.open=true})});
   var h=location.hash.slice(1);
   if(!show(h,false)) show('rag',false);
   else document.getElementById('ai').scrollIntoView();
