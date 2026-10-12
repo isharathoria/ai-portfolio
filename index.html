@@ -152,6 +152,12 @@ ul.list li{position:relative;padding-left:20px;margin:8px 0;color:var(--ink2);fo
 ul.list li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--azure)}
 ul.list li b{color:var(--ink);font-weight:600}
 
+/* ---------- technical design ---------- */
+.tech{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tech div{border:1px solid var(--line);border-left:3px solid var(--azure);border-radius:10px;padding:12px 14px;font-size:13.5px;color:var(--ink2);background:var(--bg)}
+.tech b{display:block;color:var(--ink);font-family:var(--head);font-size:14.5px;margin-bottom:3px}
+#discharge{margin-top:0}
+
 /* ---------- customer-facing ---------- */
 .cx{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .cx div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;border-top:3px solid var(--azure)}
@@ -211,6 +217,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   .hl{grid-template-columns:1fr}
   .hl .c.feature{grid-column:auto}
   .cf-top,.bg-grid,.skills{grid-template-columns:1fr}
+  .tech{grid-template-columns:1fr 1fr}
   .cx{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
@@ -225,7 +232,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   .tab .h{font-size:14.5px}
   .hero-stat{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px}
   .hero-stat .num{font-size:34px}
-  .role{grid-template-columns:1fr}
+  .role,.tech{grid-template-columns:1fr}
   .impact{grid-template-columns:1fr 1fr}
   .case{padding:26px 18px;border-radius:16px}
   .case-head{flex-direction:column;gap:12px}
@@ -253,7 +260,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
     <div class="kicker">Product Manager · Enterprise AI Products</div>
     <h1>Isha</h1>
     <div class="tagline">I build AI products that fit real workflows.</div>
-    <p class="intro">Product Manager at Qure.ai, working on clinical AI for US health systems. Before that I was the first hire at Care.Fi, a healthcare fintech, where I built and scaled the business across product, lending, fundraising and operations. IIT Bombay engineer.</p>
+    <p class="intro">Most recently Product Manager at Qure.ai, building clinical AI for US health systems. Before that I spent about four years as the first hire at Care.Fi, a healthcare fintech, where I built and scaled the business across product, lending, fundraising and operations. IIT Bombay engineer.</p>
     <div class="chips">
       <span class="chip">Qure.ai · Clinical AI</span>
       <span class="chip">Care.Fi · Healthcare fintech</span>
@@ -286,9 +293,9 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
 <section class="block" id="qure">
   <div class="company">
     <div>
-      <div class="eyebrow">Current · Product Manager</div>
+      <div class="eyebrow">Product Manager · 9 months</div>
       <h2 class="sec-title">Qure.ai</h2>
-      <p class="sec-sub">Clinical AI used by US health systems. I own products from customer discovery and PRDs through model improvement, regulatory submission and deployment.</p>
+      <p class="sec-sub">Clinical AI used by US health systems. I owned products from customer discovery and PRDs through model improvement, regulatory submission and deployment.</p>
     </div>
   </div>
 
@@ -579,7 +586,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
 
 <!-- ================= CARE.FI ================= -->
 <section class="block" id="carefi">
-  <div class="eyebrow">~4.5 years · First hire</div>
+  <div class="eyebrow">~4 years · First hire</div>
   <h2 class="sec-title">Care.Fi</h2>
   <div class="cf">
     <div class="cf-top">
@@ -603,6 +610,98 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
       </div>
     </div>
   </div>
+
+  <div class="subhead"><h3>Product case study</h3><span class="pill">Care.Fi</span></div>
+  <p class="subnote">A hospital workflow product I led from research to deployment.</p>
+
+<article class="case" id="discharge">
+  <div class="case-head">
+    <div class="badge">04</div>
+    <div>
+      <div class="t">Hospital operations · Workflow product</div>
+      <h2>Cutting hospital discharge time from 6 hours to 30 minutes</h2>
+      <p class="lede">Rebuilt how hospitals submit documents and get insurance pre-authorisation, so cashless patients are no longer stuck waiting for hours after the doctor clears them to go home.</p>
+      <div class="tags"><span class="tag">Workflow redesign</span><span class="tag">Document automation</span><span class="tag">Insurer / TPA integration</span><span class="tag">Ops dashboards</span></div>
+    </div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="num">6 <small>hrs</small> <span>→</span> 30 <small>min</small></div>
+    <div class="txt"><b>Discharge turnaround</b>Time from discharge advice to the patient leaving, driven by faster document submission and pre-authorisation.</div>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h4>Problem</h4>
+      <p>For insured patients, discharge waits on paperwork. The hospital has to collect the final bill, discharge summary, ID and policy documents, send them to the insurer or TPA, and wait for approval. Done by hand across email and portals, with documents often missing, this took around six hours of back-and-forth. Beds stayed blocked and patients waited.</p>
+    </div>
+    <div class="box why">
+      <h4>The insight</h4>
+      <p>Most of the delay came from handoffs and incomplete files, not from the insurer's decision itself. Getting the file complete the first time, and submitting and tracking it digitally, removes most of the waiting. Regulation now pushes the same way: IRDAI's 2024 rules require insurers to approve discharge within 3 hours.</p>
+    </div>
+  </div>
+
+  <details class="more">
+  <summary><span class="open">Read the full case study</span><span class="less">Show less</span></summary>
+  <div class="flow">
+    <svg viewBox="0 0 760 140" role="img" aria-label="Discharge advised, documents captured digitally, completeness check, submitted to insurer or TPA, live status and query handling, approval, patient discharged">
+      <defs><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--azure)"/></marker></defs>
+      <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+        <rect x="4" y="30" width="96" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="52" y="54" font-size="12.5" font-weight="600" fill="var(--ink)">Discharge</text><text x="52" y="71" font-size="10.5" fill="var(--ink3)">advised</text>
+        <rect x="124" y="30" width="100" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="174" y="54" font-size="12.5" font-weight="600" fill="var(--azure-600)">Capture docs</text><text x="174" y="71" font-size="10.5" fill="var(--azure-600)">one case file</text>
+        <rect x="248" y="30" width="104" height="54" rx="12" fill="var(--topaz-50)" stroke="var(--topaz)" stroke-width="1.5"/>
+        <text x="300" y="54" font-size="12.5" font-weight="600" fill="var(--topaz)">Completeness</text><text x="300" y="71" font-size="10.5" fill="var(--topaz)">checklist</text>
+        <rect x="376" y="30" width="104" height="54" rx="12" fill="var(--azure-50)" stroke="var(--azure)" stroke-width="1.5"/>
+        <text x="428" y="54" font-size="12.5" font-weight="600" fill="var(--azure-600)">Submit</text><text x="428" y="71" font-size="10.5" fill="var(--azure-600)">insurer / TPA</text>
+        <rect x="504" y="30" width="110" height="54" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="559" y="54" font-size="12.5" font-weight="600" fill="var(--ink)">Track status</text><text x="559" y="71" font-size="10.5" fill="var(--ink3)">queries · alerts</text>
+        <rect x="638" y="30" width="116" height="54" rx="12" fill="var(--emerald-50)" stroke="var(--emerald)" stroke-width="1.5"/>
+        <text x="696" y="54" font-size="12.5" font-weight="600" fill="var(--emerald)">Approved</text><text x="696" y="71" font-size="10.5" fill="var(--emerald)">patient discharged</text>
+        <g stroke="var(--azure)" stroke-width="1.6" fill="none" marker-end="url(#a4)">
+          <line x1="102" y1="57" x2="121" y2="57"/><line x1="226" y1="57" x2="245" y2="57"/><line x1="354" y1="57" x2="373" y2="57"/><line x1="482" y1="57" x2="501" y2="57"/><line x1="616" y1="57" x2="635" y2="57"/>
+          <path d="M559 86 C559 116, 174 116, 174 87"/>
+        </g>
+        <text x="366" y="132" font-size="10.5" fill="var(--ink3)">insurer queries go back to the case file and are resolved in one place</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sub">Technical design</div>
+  <div class="tech">
+    <div><b>Digital case file</b>One record per patient admission. The billing desk uploads or scans the bill, discharge summary, ID and policy documents into it, instead of collecting paper.</div>
+    <div><b>Completeness checks</b>Per-insurer document checklists and field validation run before submission, so missing or mismatched documents are caught at the hospital, not in a query hours later.</div>
+    <div><b>Pre-filled forms</b>Pre-authorisation and discharge forms are generated from hospital and policy data in the format each insurer or TPA expects, removing manual re-entry.</div>
+    <div><b>Submission &amp; integration</b>A single submission flow to insurer and TPA channels, with every submission and response logged against the case.</div>
+    <div><b>Status tracking &amp; alerts</b>A case timeline with SLA timers. The desk is alerted when a query or approval arrives, and queries are answered from the same file.</div>
+    <div><b>Ops dashboard</b>Turnaround per case, stuck cases, and query reasons by insurer, so the team could fix the most common causes of delay.</div>
+  </div>
+
+  <div class="sub">What I owned as PM</div>
+  <div class="role">
+    <div><b>Found the bottleneck</b>Mapped the discharge journey with hospital billing and insurance desks to see where the hours went.</div>
+    <div><b>Defined the product</b>Wrote the requirements and success metric: discharge turnaround time.</div>
+    <div><b>Designed the workflow</b>Designed the case file, checklists and status flow around how the billing desk already works.</div>
+    <div><b>Worked with engineering</b>Took it from research to deployment with the tech team.</div>
+    <div><b>Rolled it out</b>Onboarded hospital teams and trained the desks that use it every day.</div>
+    <div><b>Tracked impact</b>Measured turnaround before and after, and kept removing the top causes of delay.</div>
+  </div>
+
+  <div class="sub">Impact</div>
+  <div class="impact">
+    <div><b>6 hrs → 30 min</b>Discharge turnaround for cashless patients</div>
+    <div><b>Beds freed sooner</b>More capacity for new admissions</div>
+    <div><b>Less desk work</b>No manual re-entry or chasing documents</div>
+    <div><b>Happier patients</b>No long wait after being cleared to go home</div>
+  </div>
+
+  <div class="sub">How I evaluate it</div>
+  <div class="evals">
+    <span><b>Proposed</b>Median &amp; 90th-percentile discharge time</span><span><b>Proposed</b>First-time-complete submission rate</span><span><b>Proposed</b>Insurer query rate</span><span><b>Proposed</b>Cases breaching SLA</span><span><b>Proposed</b>Desk time per case</span>
+  </div>
+  </details>
+</article>
 </section>
 
 <!-- ================= CUSTOMER-FACING ================= -->
@@ -650,8 +749,8 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
   <h2 class="sec-title">Background &amp; achievements</h2>
   <div class="bg-grid">
     <div class="tl">
-      <div class="it now"><h4>Qure.ai</h4><div class="when">Product Manager · Current</div><p>Clinical AI for US health systems: FDA submissions, US expansion, AI tools and enterprise deployments.</p></div>
-      <div class="it"><h4>Care.Fi</h4><div class="when">First hire · ~4.5 years</div><p>Healthcare fintech. Scaled to 50+ hospitals and 4× YoY revenue across product, lending, fundraising and ops, and expanded into the UAE.</p></div>
+      <div class="it now"><h4>Qure.ai</h4><div class="when">Product Manager · 9 months</div><p>Clinical AI for US health systems: FDA submissions, US expansion, AI tools and enterprise deployments.</p></div>
+      <div class="it"><h4>Care.Fi</h4><div class="when">First hire · ~4 years</div><p>Healthcare fintech. Scaled to 50+ hospitals and 4× YoY revenue across product, lending, fundraising and ops, and expanded into the UAE.</p></div>
       <div class="it"><h4>Avail Finance</h4><div class="when">Working with the CFO</div><p>Debt fundraising. Received a pre-placement offer.</p></div>
       <div class="it"><h4>Own venture: mentorship &amp; tutoring platform</h4><div class="when">Founder</div><p>Connected students with mentors and experts: 5 partner schools, 100+ mentors, about 2,000 students onboarded.</p></div>
       <div class="it"><h4>IvyCap Ventures · Deutsche Bank (Manch)</h4><div class="when">Early roles</div><p>Worked with an IvyCap portfolio company, and on Deutsche Bank's financial-literacy initiative.</p></div>
@@ -663,6 +762,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:22px 0 40px;colo
         <li><b>FDA submissions</b>An AI cardiovascular product through FDA, plus two new submissions in 6 months</li>
         <li><b>40% faster onboarding</b>US health-system onboarding cut from 10 to 6 months</li>
         <li><b>$8M+ raised, 300 bps saved</b>Debt financing across 8+ institutions at Care.Fi</li>
+        <li><b>6 hrs → 30 min discharge</b>Cut hospital discharge time with digital document submission and pre-authorisation</li>
         <li><b>First hire → 15-person team</b>Grew Care.Fi to 50+ hospitals, 4× YoY revenue, 95% recurring</li>
         <li><b>Founded a mentorship platform</b>About 2,000 students and 100+ mentors across 5 schools</li>
         <li><b>Pre-placement offer</b>Avail Finance, after working with the CFO on debt raising</li>
